@@ -1,0 +1,10 @@
+Flyway on maven *:
+Use "mvn flyway:migrate" to start migration
+Use "mvn flyway:validate" to check the current database schema against the available migrations.
+Use "mvn flyway:init -Dflyway.initialVersion=?(number) -Dflyway.initialDescription="?" " create a versioned structure
+Use "mvn flyway:clear" to drops all objects in the configured schemas;
+or use FlyWayMigration.class
+
+My docker repo https://hub.docker.com/repository/docker/gfintn/my-postgres/general
+
+Start Main class

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  db:
+    image: posgresql
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pg/data:/var/lib/posgresql/data/pgdata
+    environment:
+      POSTGRES_USER: posgres
+      POSTGRES_PASSWORD: root
+      PGDATA: /var/lib/posgresql/data/pgdata
+
+  app:
+    image: gfintn/my-postgres:verion.1
+    container_name: docker-compos
+    ports:
+      - 3000:3000
+    environment:
+      POSGRES_HOST: db
+    restart: always
+    links:
+      - db
+
+
